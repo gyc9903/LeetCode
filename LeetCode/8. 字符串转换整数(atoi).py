@@ -10,7 +10,7 @@
   大于 2^31 − 1 的整数应该被固定为 2^31 − 1 。
 6.返回整数作为最终结果。
 
-方法一：自动机
+方法一：自动机 https://leetcode.cn/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/
 我们也可以用下面的表格来表示这个自动机：
 	       ' '	    +/-	     number	   other
 start	   start	signed	in_number	end
@@ -64,7 +64,35 @@ class Solution(object):
             automaton.get(c)
         return automaton.sign * automaton.ans
 
+# 方法二
+# class Solution(object):
+#     def myAtoi(self, s):
+#         i = 0  # 字符串s的下标
+#         n = len(s)  # 字符串s的长度
+#         while i < n and s[i] == ' ':
+#             i = i + 1
+#         if n == 0 or i == n:
+#             return 0
+#         flag = 1
+#         if s[i] == '-':
+#             flag = -1
+#         if s[i] == '+' or s[i] == '-':
+#             i = i + 1
+#
+#         INT_MAX = 2 ** 31 - 1
+#         INT_MIN = -2 ** 31
+#         ans = 0
+#         while i < n and '0' <= s[i] <= '9':
+#             ans = ans * 10 + int(s[i])
+#             i += 1
+#             if ans - 1 > INT_MAX:
+#                 break
+#         ans = ans * flag
+#         if ans > INT_MAX:
+#             return INT_MAX
+#         return INT_MIN if ans < INT_MIN else ans
 
-num = ' -42'
+
+num = ' -43-9399 with words'
 so = Solution().myAtoi(num)
 print(so)

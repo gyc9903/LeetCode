@@ -1,7 +1,6 @@
 # @Project: VSCODE_WORKSPACE
 # !/user/bin/env python
 # -*- encoding:utf-8 -*-
-
 """
 给你一个字符串 s，找到 s 中最长的回文子串。回文子串是正反顺序一致，即"abccba"是一整个回文子串
 
@@ -16,9 +15,8 @@
  
 提示：
 1 <= s.length <= 1000
-s 仅由数字和英文字母组成
+s 仅由数字和英文字母组成1
 """
-
 
 # class Solution(object):
 #     """思路：中心扩散"""
@@ -64,8 +62,8 @@ class Solution(object):
         maxlen = 1
         for i in range(1, len(s)):
             # 分奇偶两种情况，获取可能符合条件的字符串
-            odd = s[i - maxlen - 1: i + 1]
-            even = s[i - maxlen: i + 1]
+            odd = s[i - maxlen - 1:i + 1]
+            even = s[i - maxlen:i + 1]
             # 判断是否为回文子串
             if odd == odd[::-1] and i - maxlen - 1 >= 0:
                 res = odd
